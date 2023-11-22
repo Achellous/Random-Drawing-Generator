@@ -16,7 +16,7 @@ public class Point {
     }
 
     public double calculateDistance(Point point) {
-        // Implementation goes here
+        // Implementation
         return 0.0;
     }
 }

@@ -1,5 +1,5 @@
 public class Circle extends GeometricFigureApp {
-    // Specific attribute for Circle
+    // Attribute for Circle
     private double radius;
 
     // Constructor
@@ -19,7 +19,7 @@ public class Circle extends GeometricFigureApp {
     }
 
     public double calculateCircumference() {
-        // Implementation goes here
+        // Implementation
         return 0.0;
     }
 }

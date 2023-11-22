@@ -1,5 +1,5 @@
 public class Triangle extends GeometricFigureApp {
-    // Specific attributes for Triangle
+    // Attributes for Triangle
     private double base;
     private double height;
 
@@ -19,7 +19,7 @@ public class Triangle extends GeometricFigureApp {
     }
 
     public double calculateArea() {
-        // Implementation goes here
+        // Implementation
         return 0.0;
     }
 }

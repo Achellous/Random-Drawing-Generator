@@ -1,4 +1,4 @@
-public class Line {
+public class Line extends GeometricFigureApp{
     private Point startPoint;
     private Point endPoint;
 
@@ -16,7 +16,7 @@ public class Line {
     }
 
     public double calculateLength() {
-        // Implementation goes here
+        //Implementation
         return 0.0;
     }
 }

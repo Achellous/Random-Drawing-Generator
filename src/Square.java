@@ -10,12 +10,12 @@ public class Square extends GeometricFigureApp{
     }
 
     public double calculateArea() {
-        // Implementation goes here
+        // Implementation
         return 0.0;
     }
 
     public double calculatePerimeter() {
-        // Implementation goes here
+        // Implementation
         return 0.0;
     }
 }
