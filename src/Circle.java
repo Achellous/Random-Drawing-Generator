@@ -1,14 +1,18 @@
-public class Circle {
+public class Circle extends GeometricFigureApp {
+    // Specific attribute for Circle
     private double radius;
 
+    // Constructor
     public Circle(double radius) {
         this.radius = radius;
     }
 
+    // Method to get radius
     public double getRadius() {
         return radius;
     }
 
+    // Methods to calculate area and circumference
     public double calculateArea() {
         // Implementation goes here
         return 0.0;

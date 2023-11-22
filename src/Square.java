@@ -1,4 +1,4 @@
-public class Square {
+public class Square extends GeometricFigureApp{
     private double sideLength;
 
     public Square(double sideLength) {

@@ -1,12 +1,15 @@
-public class Triangle {
+public class Triangle extends GeometricFigureApp {
+    // Specific attributes for Triangle
     private double base;
     private double height;
 
+    // Constructor
     public Triangle(double base, double height) {
         this.base = base;
         this.height = height;
     }
 
+    // Methods to get base, height, and calculate area
     public double getBase() {
         return base;
     }
