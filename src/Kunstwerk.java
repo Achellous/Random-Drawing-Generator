@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class GeometricFigureApp {
+public class Kunstwerk {
     private Point startPoint;
     private Point b;
     private Color fill;

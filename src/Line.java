@@ -1,4 +1,4 @@
-public class Line extends GeometricFigureApp{
+public class Line extends Kunstwerk {
     private Point startPoint;
     private Point endPoint;
 

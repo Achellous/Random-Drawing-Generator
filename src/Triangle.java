@@ -1,4 +1,4 @@
-public class Triangle extends GeometricFigureApp {
+public class Triangle extends Kunstwerk {
     // Attributes for Triangle
     private double base;
     private double height;

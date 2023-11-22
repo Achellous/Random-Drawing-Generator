@@ -1,4 +1,4 @@
-public class Circle extends GeometricFigureApp {
+public class Circle extends Kunstwerk {
     // Attribute for Circle
     private double radius;
 

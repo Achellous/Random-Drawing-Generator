@@ -1,4 +1,4 @@
-public class Square extends GeometricFigureApp{
+public class Square extends Kunstwerk {
     private double sideLength;
 
     public Square(double sideLength) {
