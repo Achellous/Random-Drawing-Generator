@@ -1,4 +1,3 @@
-import java.awt.Color;
 import java.util.Random;
 
 public class Circle extends Kunstwerk {
@@ -32,7 +31,7 @@ public class Circle extends Kunstwerk {
 
         // Create a Circle instance with random coordinates, radius, and no fill color initially
         Circle circle = new Circle(x, y, radius);
-        circle.setFill(null); // or any default color you wish to set
+        circle.setFillColor(null); // or any default color you wish to set
 
         return circle;
     }

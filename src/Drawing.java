@@ -16,19 +16,19 @@ public class Drawing extends JPanel {
         super.paintComponent(g);
         for (Kunstwerk shape : shapes) {
             if (shape instanceof Circle circle) {
-                g.setColor(circle.getFill());
+                g.setColor(circle.getFillColor());
                 int diameter = (int) (circle.getRadius() * 2);
                 g.fillOval((int) (circle.getX() - circle.getRadius()), (int) (circle.getY() - circle.getRadius()), diameter, diameter);
             } else if (shape instanceof Triangle triangle) {
-                g.setColor(triangle.getFill());
+                g.setColor(triangle.getFillColor());
                 int[] xPoints = new int[]{(int) triangle.getX1(), (int) triangle.getX2(), (int) triangle.getX3()};
                 int[] yPoints = new int[]{(int) triangle.getY1(), (int) triangle.getY2(), (int) triangle.getY3()};
                 g.fillPolygon(xPoints, yPoints, 3);
             } else if (shape instanceof Square square) {
-                g.setColor(square.getFill());
+                g.setColor(square.getFillColor());
                 g.fillRect((int) square.getX(), (int) square.getY(), (int) square.getSideLength(), (int) square.getSideLength());
             } else if (shape instanceof Line line) {
-                g.setColor(line.getFill());
+                g.setColor(line.getFillColor());
                 g.drawLine((int) line.getStartPoint().getX(), (int) line.getStartPoint().getY(),
                         (int) line.getEndPoint().getX(), (int) line.getEndPoint().getY());
             }
@@ -46,7 +46,7 @@ public class Drawing extends JPanel {
         shapes.add(Line.createRandom()); // Adding a random line
 
         Random random = new Random();
-        int numberOfShapesPerType = 5; // Change this value to add more shapes of each type
+        int numberOfShapesPerType = 20; // Change this value to add more shapes of each type
 
         for (int i = 0; i < numberOfShapesPerType; i++) {
             shapes.add(Circle.createRandom());
