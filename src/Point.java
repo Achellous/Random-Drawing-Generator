@@ -15,8 +15,4 @@ public class Point {
         return y;
     }
 
-    public double calculateDistance(Point point) {
-        // Implementation
-        return 0.0;
-    }
 }
