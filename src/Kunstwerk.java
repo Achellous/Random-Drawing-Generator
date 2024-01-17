@@ -17,18 +17,13 @@ public abstract class Kunstwerk {
         Random random = new Random();
         int shapeType = random.nextInt(5); // Randomly select a shape type (0 to 4)
 
-        switch (shapeType) {
-            case 0:
-                return createRandomCircle(random, panelWidth, panelHeight);
-            case 1:
-                return createRandomTriangle(random, panelWidth, panelHeight);
-            case 2:
-                return createRandomSquare(random, panelWidth, panelHeight);
-            case 3:
-                return createRandomLine(random, panelWidth, panelHeight);
-            default:
-                return createRandomCircle(random, panelWidth, panelHeight); // Default to Circle if unexpected value
-        }
+        return switch (shapeType) {
+            case 0 -> createRandomCircle(random, panelWidth, panelHeight);
+            case 1 -> createRandomTriangle(random, panelWidth, panelHeight);
+            case 2 -> createRandomSquare(random, panelWidth, panelHeight);
+            case 3 -> createRandomLine(random, panelWidth, panelHeight);
+            default -> createRandomCircle(random, panelWidth, panelHeight); // Default to Circle if unexpected value
+        };
     }
 
     private static Circle createRandomCircle(Random random, int panelWidth, int panelHeight) {
@@ -53,7 +48,9 @@ public abstract class Kunstwerk {
         double x3 = random.nextDouble() * panelWidth;
         double y3 = random.nextDouble() * panelHeight;
 
-        Color fill = new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)); // Random fill color
+        random.nextInt(256);
+        random.nextInt(256);
+        random.nextInt(256);// Random fill color
         return new Triangle(x1, y1, x2, y2, x3, y3);
     }
 

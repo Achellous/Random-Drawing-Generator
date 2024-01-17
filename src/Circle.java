@@ -1,8 +1,7 @@
-import java.awt.Color;
-import java.util.Random;
-
 public class Circle extends Kunstwerk {
-    private double x, y, radius;
+    private final double x;
+    private final double y;
+    private final double radius;
 
     public Circle(double x, double y, double radius) {
         this.x = x;

@@ -1,8 +1,7 @@
-import java.awt.Color;
-import java.util.Random;
-
 public class Square extends Kunstwerk {
-    private double sideLength, x, y;
+    private final double sideLength;
+    private double x;
+    private double y;
 
     public Square(double sideLength) {
         this.sideLength = sideLength;

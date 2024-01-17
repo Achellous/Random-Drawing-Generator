@@ -1,13 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Drawing extends JPanel {
-    private List<Kunstwerk> shapes;
+    private final List<Kunstwerk> shapes;
 
     public Drawing(List<Kunstwerk> shapes) {
         this.shapes = shapes;
@@ -46,21 +44,15 @@ public class Drawing extends JPanel {
         frame.add(drawing);
 
         JButton createButton = new JButton("Do The Magic");
-        createButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                createRandomShapes(shapes);
-                drawing.repaint();
-            }
+        createButton.addActionListener(e -> {
+            createRandomShapes(shapes);
+            drawing.repaint();
         });
 
         JButton deleteButton = new JButton("Clean The Mess");
-        deleteButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                shapes.clear();
-                drawing.repaint();
-            }
+        deleteButton.addActionListener(e -> {
+            shapes.clear();
+            drawing.repaint();
         });
 
         JPanel buttonPanel = new JPanel();
@@ -74,7 +66,7 @@ public class Drawing extends JPanel {
     }
 
     private static void createRandomShapes(List<Kunstwerk> shapes) {
-        Random random = new Random();
+        new Random();
         int numberOfShapes = 20;
 
         for (int i = 0; i < numberOfShapes; i++) {
