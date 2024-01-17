@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -35,37 +37,48 @@ public class Drawing extends JPanel {
         }
     }
 
-
-
     public static void main(String[] args) {
         List<Kunstwerk> shapes = new ArrayList<>();
 
-        shapes.add(Circle.createRandom()); // Adding a random circle
-        shapes.add(Triangle.createRandom()); // Adding a random triangle
-        shapes.add(Square.createRandom()); // Adding a random square
-        shapes.add(Line.createRandom()); // Adding a random line
-
-        Random random = new Random();
-        int numberOfShapesPerType = 20; // Change this value to add more shapes of each type
-
-        for (int i = 0; i < numberOfShapesPerType; i++) {
-            shapes.add(Circle.createRandom());
-            shapes.add(Triangle.createRandom());
-            shapes.add(Square.createRandom());
-            shapes.add(Line.createRandom());
-            // Add more instances if needed
-        }
-
-        JFrame frame = new JFrame("Random Drawing");
+        JFrame frame = new JFrame("Fawaz's Piece Of Art");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Drawing drawing = new Drawing(shapes);
         frame.add(drawing);
+
+        JButton createButton = new JButton("Do The Magic");
+        createButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                createRandomShapes(shapes);
+                drawing.repaint();
+            }
+        });
+
+        JButton deleteButton = new JButton("Clean The Mess");
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                shapes.clear();
+                drawing.repaint();
+            }
+        });
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(createButton);
+        buttonPanel.add(deleteButton);
+
+        frame.add(buttonPanel, BorderLayout.SOUTH);
+
         frame.setSize(800, 600);
         frame.setVisible(true);
     }
 
+    private static void createRandomShapes(List<Kunstwerk> shapes) {
+        Random random = new Random();
+        int numberOfShapes = 20;
 
-
-
-
+        for (int i = 0; i < numberOfShapes; i++) {
+            shapes.add(Kunstwerk.createRandom(800, 600));
+        }
+    }
 }

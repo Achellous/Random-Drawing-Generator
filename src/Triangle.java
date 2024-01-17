@@ -1,3 +1,6 @@
+import java.awt.Color;
+import java.util.Random;
+
 public class Triangle extends Kunstwerk {
     private double x1, y1, x2, y2, x3, y3;
 
@@ -10,7 +13,6 @@ public class Triangle extends Kunstwerk {
         this.y3 = y3;
     }
 
-    // Getter methods for triangle vertices
     public double getX1() {
         return x1;
     }

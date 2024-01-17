@@ -12,27 +12,31 @@ public abstract class Kunstwerk {
         this.fillColor = fillColor;
     }
 
-    // Method for creating random instances (common for all shapes)
-    public static Kunstwerk createRandom() {
+    // Method for creating random instances
+    public static Kunstwerk createRandom(int panelWidth, int panelHeight) {
         Random random = new Random();
         int shapeType = random.nextInt(5); // Randomly select a shape type (0 to 4)
 
-        return switch (shapeType) {
-            case 0 -> createRandomCircle(random);
-            case 1 -> createRandomTriangle(random);
-            case 2 -> createRandomSquare(random);
-            case 3 -> createRandomLine(random);
-            default -> createRandomCircle(random); // Default to Circle if unexpected value
-        };
+        switch (shapeType) {
+            case 0:
+                return createRandomCircle(random, panelWidth, panelHeight);
+            case 1:
+                return createRandomTriangle(random, panelWidth, panelHeight);
+            case 2:
+                return createRandomSquare(random, panelWidth, panelHeight);
+            case 3:
+                return createRandomLine(random, panelWidth, panelHeight);
+            default:
+                return createRandomCircle(random, panelWidth, panelHeight); // Default to Circle if unexpected value
+        }
     }
 
-    // Methods for generating random instances of each shape
-    private static Circle createRandomCircle(Random random) {
+    private static Circle createRandomCircle(Random random, int panelWidth, int panelHeight) {
         double radius = random.nextDouble() * 50; // Random radius between 0 and 50
 
         // Ensure the circle stays within the panel bounds
-        double x = radius + random.nextDouble() * (200 - 2 * radius); // Random x coordinate within panel width - diameter
-        double y = radius + random.nextDouble() * (100 - 2 * radius); // Random y coordinate within panel height - diameter
+        double x = radius + random.nextDouble() * (panelWidth - 2 * radius);
+        double y = radius + random.nextDouble() * (panelHeight - 2 * radius);
 
         Circle circle = new Circle(x, y, radius);
         circle.setFillColor(new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256))); // Random fill color
@@ -40,27 +44,25 @@ public abstract class Kunstwerk {
         return circle;
     }
 
-
-    private static Triangle createRandomTriangle(Random random) {
+    private static Triangle createRandomTriangle(Random random, int panelWidth, int panelHeight) {
         // Generate random coordinates for triangle vertices within the panel bounds
-        double x1 = random.nextDouble() * 400;
-        double y1 = random.nextDouble() * 300;
-        double x2 = random.nextDouble() * 400;
-        double y2 = random.nextDouble() * 300;
-        double x3 = random.nextDouble() * 400;
-        double y3 = random.nextDouble() * 300;
+        double x1 = random.nextDouble() * panelWidth;
+        double y1 = random.nextDouble() * panelHeight;
+        double x2 = random.nextDouble() * panelWidth;
+        double y2 = random.nextDouble() * panelHeight;
+        double x3 = random.nextDouble() * panelWidth;
+        double y3 = random.nextDouble() * panelHeight;
 
         Color fill = new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)); // Random fill color
         return new Triangle(x1, y1, x2, y2, x3, y3);
     }
 
-
-    private static Square createRandomSquare(Random random) {
+    private static Square createRandomSquare(Random random, int panelWidth, int panelHeight) {
         double sideLength = random.nextDouble() * 50; // Random side length between 0 and 50
 
         // Ensure the square stays within the panel bounds
-        double x = random.nextDouble() * (400 - sideLength); // Random x coordinate within panel width - side length
-        double y = random.nextDouble() * (300 - sideLength); // Random y coordinate within panel height - side length
+        double x = random.nextDouble() * (panelWidth - sideLength);
+        double y = random.nextDouble() * (panelHeight - sideLength);
 
         Color fill = new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)); // Random fill color
 
@@ -72,20 +74,17 @@ public abstract class Kunstwerk {
         return square;
     }
 
-
-    private static Line createRandomLine(Random random) {
-        int startX = random.nextInt(400); // Random x coordinate for start point within 400
-        int startY = random.nextInt(300); // Random y coordinate for start point within 300
-        int endX = random.nextInt(400); // Random x coordinate for end point within 400
-        int endY = random.nextInt(300); // Random y coordinate for end point within 300
+    private static Line createRandomLine(Random random, int panelWidth, int panelHeight) {
+        int startX = random.nextInt(panelWidth);
+        int startY = random.nextInt(panelHeight);
+        int endX = random.nextInt(panelWidth);
+        int endY = random.nextInt(panelHeight);
 
         Point start = new Point(startX, startY);
         Point end = new Point(endX, endY);
 
         Line line = new Line(start, end);
-        line.setFillColor(null); // or any default color you wish to set
-
+        line.setFillColor(null);
         return line;
     }
-
 }

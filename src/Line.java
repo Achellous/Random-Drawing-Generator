@@ -1,6 +1,7 @@
+import java.util.Random;
+
 public class Line extends Kunstwerk {
-    private Point startPoint;
-    private Point endPoint;
+    private Point startPoint, endPoint;
 
     public Line(Point startPoint, Point endPoint) {
         this.startPoint = startPoint;
@@ -14,5 +15,4 @@ public class Line extends Kunstwerk {
     public Point getEndPoint() {
         return endPoint;
     }
-
 }
